@@ -5,7 +5,7 @@ import QRCode from "react-qr-code";
 import BarcodeScannerComponent from "react-qr-barcode-scanner";
 import "./App.css";
 
-const ids = [7028, 9478, 3197, 8897, 7646, 8853, 2103, 6222, 9808, 2118, 3444, 5243];
+const ids = [7028];
 
 function App() {
   const [appMode, setAppMode] = useState("scan");
@@ -40,8 +40,8 @@ function App() {
         </div>
       )}
       {appMode === "scan" && (
-        <div className="max-w-2xl m-auto">
-          <BarcodeScannerComponent width={500} height={500} onUpdate={handleScannerUpdate} stopStream={stopStream} />
+        <div className="max-w-2xl m-auto aspect-square">
+          <BarcodeScannerComponent onUpdate={handleScannerUpdate} stopStream torch />
           <p>
             {data} / {stopStream ? "true" : "false"}
           </p>
